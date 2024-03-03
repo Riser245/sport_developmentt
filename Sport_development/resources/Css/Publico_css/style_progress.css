@@ -1,0 +1,11 @@
+body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background:url('/Imagenes/En\ progreso....png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: 80%;
+}

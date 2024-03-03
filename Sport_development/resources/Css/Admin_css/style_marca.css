@@ -1,0 +1,12 @@
+.gradient-custom {    
+    background: linear-gradient(rgba(36, 92, 157, 1),rgba(64, 146, 206, 0.98));
+  }
+
+  h3{
+    text-align: center;
+  }
+
+  p{
+    color: white;
+}
+

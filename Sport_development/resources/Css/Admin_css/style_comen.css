@@ -1,0 +1,17 @@
+/* La clase gradient custom investigue como usarla para no usar una imagen como background o cambiar su color desde css */
+
+.gradient-custom {    
+  background: linear-gradient(rgba(36, 92, 157, 1),rgba(64, 146, 206, 0.98));
+}
+/* Cambio de  color para los componentes del footer*/
+
+
+h3{
+  text-align: center;
+}
+
+/* Cambio de  color para los componentes del footer*/
+
+p{
+  color: white;
+}
