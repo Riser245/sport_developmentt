@@ -10,8 +10,12 @@ const SAVE_FORM = document.getElementById('saveForm'),
     NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
     DESCRIPCION_PRODUCTO = document.getElementById('descripcionProducto'),
     PRECIO_PRODUCTO = document.getElementById('precioProducto'),
-    EXISTENCIAS_PRODUCTO = document.getElementById('existenciasProducto'),
+    EXISTENCIAS_PRODUCTO = document.getElementById('marcaproducto'),
+    ESTADO_PRODUCTO = document.getElementById('categoriaProducto');
+    ESTADO_PRODUCTO = document.getElementById('deporteProducto');
+    ESTADO_PRODUCTO = document.getElementById('generoProducto');
     ESTADO_PRODUCTO = document.getElementById('estadoProducto');
+
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,28 +37,7 @@ SEARCH_FORM.addEventListener('submit', (event) => {
     fillTable(FORM);
 });
 
-// Método del evento para cuando se envía el formulario de guardar.
-SAVE_FORM.addEventListener('submit', async (event) => {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Se verifica la acción a realizar.
-    (ID_PRODUCTO.value) ? action = 'updateRow' : action = 'createRow';
-    // Constante tipo objeto con los datos del formulario.
-    const FORM = new FormData(SAVE_FORM);
-    // Petición para guardar los datos del formulario.
-    const DATA = await fetchData(PRODUCTO_API, action, FORM);
-    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-    if (DATA.status) {
-        // Se cierra la caja de diálogo.
-        SAVE_MODAL.hide();
-        // Se muestra un mensaje de éxito.
-        sweetAlert(1, DATA.message, true);
-        // Se carga nuevamente la tabla para visualizar los cambios.
-        fillTable();
-    } else {
-        sweetAlert(2, DATA.error, false);
-    }
-});
+
 
 /*
 *   Función asíncrona para llenar la tabla con los registros disponibles.
@@ -95,9 +78,7 @@ const fillTable = async (form = null) => {
         });
         // Se muestra un mensaje de acuerdo con el resultado.
         ROWS_FOUND.textContent = DATA.message;
-    } else {
-        sweetAlert(4, DATA.error, true);
-    }
+    } 
 }
 
 /*
@@ -112,7 +93,6 @@ const openCreate = () => {
     // Se prepara el formulario.
     SAVE_FORM.reset();
     EXISTENCIAS_PRODUCTO.disabled = false;
-    fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto');
 }
 
 /*
